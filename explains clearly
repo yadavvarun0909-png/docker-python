@@ -1,0 +1,86 @@
+wsl
+cd
+mkdir varun01
+vim main1.py
+git --version
+git init
+git status
+git add main1.py
+git status
+git commit -m "This is my first version"
+git log
+git push
+git remote add origin https://github.com/yadavvarun0909-png/docker-python.git
+git branch -M main
+git push -u origin main
+varun@DESKTOP-3B7ENI0:~/varun01$ ssh -i ~/varunya12.pem ubuntu@35.154.217.248
+sudo apt update -y
+sudo apt install docker.io -y
+docker run hello-world
+sudo systemctl status docker
+ sudo usermod -aG docker ubuntu
+ docker run hello-world
+ logout
+ Connection to 35.154.217.248 closed.
+ ssh -i ~/varunya12.pem ubuntu@35.154.217.248
+ docker run hello-world
+ git clone https://github.com/yadavvarun0909-png/docker-python
+ ls
+ cd docker-python
+ ls
+ main1.py
+ cat main1.py
+ nano Dockerfile
+ docker build -t my-python-app .
+ docker run my-python-app
+14
+
+
+1️⃣ Create a Dockerfile:-
+nano Dockerfile
+
+Paste this content inside:
+# Use official Python base image
+FROM python:3.11-slim
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy the Python script into the container
+COPY main1.py .
+
+# Command to run the script
+CMD ["python", "main1.py"]
+-FROM python:3.11-slim → Uses lightweight Python 3.11 image
+-WORKDIR /app → Sets /app as the working folder inside the container
+-COPY main1.py . → Copies your Python file into the container
+-CMD ["python", "main1.py"] → Runs your script when the container starts
+-Save and exit (Ctrl+O, Enter, Ctrl+X in nano).
+
+2️⃣ Build the Docker image:-
+docker build -t my-python-app .
+-t my-python-app → gives your image a name (my-python-app)
+. → tells Docker to look for the Dockerfile in the current directory
+You should see Docker download the Python image and copy your file.
+
+3️⃣ Run the Docker container
+docker run my-python-app
+
+You should see the output of your script:
+14
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
