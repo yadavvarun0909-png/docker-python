@@ -1,6 +1,7 @@
 wsl
 cd
 mkdir varun01
+cd varun01
 vim main1.py
 git --version
 git init
