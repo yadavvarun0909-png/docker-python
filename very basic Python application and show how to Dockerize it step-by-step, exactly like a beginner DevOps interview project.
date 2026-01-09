@@ -1,0 +1,20 @@
+wsl
+cd
+mkdir python-docker-app
+cd python-docker-app
+vim app.py(print("Hello! This is my first Python Docker application 🚀")
+python3 app.py((Hello! This is my first Python Docker application)
+nano Dockerfile(# Step 1: Use official Python image
+FROM python:3.9-slim
+# Step 2: Set working directory inside container
+WORKDIR /app
+# Step 3: Copy app.py into container
+COPY app.py .
+# Step 4: Command to run the application
+CMD ["python", "app.py"])
+docker build -t my-python-app .
+docker images
+docker login
+docker images
+docker tag my-python-app varunya12/my-python-app:latest(Tag the image with your Docker Hub username)
+varun@DESKTOP-3B7ENI0:~/python-docker-app$ docker push varunya12/my-python-app:latest(Push the image to Docker Hub)
