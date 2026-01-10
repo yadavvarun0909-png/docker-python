@@ -1,0 +1,27 @@
+wsl
+cd
+mkdir flask-docker-app
+cd flask-docker-app
+vim app.py((from flask import Flask
+app = Flask(__name__)
+@app.route("/")
+def hello():
+    return "Hello from Dockerized Flask App!"
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000))
+vim requirements.txt(flask)--> This tells Docker which Python packages to install.
+vim Dockerfile (# Step 1: Use lightweight Python image
+FROM python:3.9-slim --> Small image → less size
+# Step 2: Set working directory inside container
+WORKDIR /app -- App runs inside /app
+# Step 3: Copy requirements file
+COPY requirements.txt .-- Copies files to container
+# Step 4: Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt -- Executes commands
+# Step 5: Copy application code
+COPY app.py .
+# Step 6: Expose application port
+EXPOSE 5000 -- Opens port
+# Step 7: Run the application
+CMD ["python", "app.py"])-- Starts application
+
