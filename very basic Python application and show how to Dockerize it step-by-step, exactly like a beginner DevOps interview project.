@@ -17,4 +17,3 @@ docker images
 docker login
 docker images
 docker tag my-python-app varunya12/my-python-app:latest(Tag the image with your Docker Hub username)
-varun@DESKTOP-3B7ENI0:~/python-docker-app$ docker push varunya12/my-python-app:latest(Push the image to Docker Hub)
